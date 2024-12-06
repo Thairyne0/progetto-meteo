@@ -18,9 +18,8 @@ const MyMeteoCards = ({ cityName }) => {
   };
 
   useEffect(() => {
-    // Funzione fetch
     if (cityName) {
-      const apiKey = "8aeaa995f2ee75ba856cf630ddb50428"; // Sostituisci con la tua chiave API
+      const apiKey = "8aeaa995f2ee75ba856cf630ddb50428";
       fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`
       )

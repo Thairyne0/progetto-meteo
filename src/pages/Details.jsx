@@ -25,7 +25,6 @@ const Details = () => {
           return response.json();
         })
         .then((data) => {
-          // Popola gli stati con i dati ricevuti
           setName(data.name);
           setMainWeather(data.weather[0].main);
           setMainDesc(data.weather[0].description);
