@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import naplesImg from "../asset/images/naples.jpg";
+import MySearchBar from "../components/MySearchBar";
 
 const Details = () => {
   const { cityName } = useParams();
@@ -41,43 +42,46 @@ const Details = () => {
   }, [cityName]);
 
   return (
-    <div
-      className="rounded-lg bg-blue-200 flex flex-col mt-12 mx-32 drop-shadow-md"
-      id={id}
-    >
-      <div className="flex justify-center mt-8 mb-6">
-        <img
-          src={naplesImg}
-          alt="Naples"
-          className="rounded-lg drop-shadow-md"
-        />
-      </div>
-      <h2 className="font-bold text-3xl mb-4">{name}</h2>
-      <h2 className="mb-4 font-bold">Temperature</h2>
-      <div className="flex justify-around mb-8">
-        <h2>
-          Temperature:{" "}
-          <strong className="text-yellow-500  bg-blue-500 p-1 rounded-md">
-            {temp}°C
-          </strong>
-        </h2>
-        <p>
-          Max Temperature:{" "}
-          <strong className="text-yellow-500 bg-blue-500 p-1 rounded-md">
-            {tempMAX}°C
-          </strong>
-        </p>
-        <p>
-          Min Temperature:{" "}
-          <strong className="text-yellow-500  bg-blue-500 p-1 rounded-md">
-            {tempMIN}°C
-          </strong>
-        </p>
-      </div>
-      <div className="flex justify-around mb-12 font-bold">
-        <p className="bg-blue-400 rounded-md p-3">Weather: {mainWeather}</p>
-        <p className="bg-blue-400 rounded-md p-3">{mainDesc}</p>
-        <p className="bg-blue-400 rounded-md p-3">Wind: {windSpeed} m/s</p>
+    <div>
+      <MySearchBar></MySearchBar>
+      <div
+        className="rounded-lg bg-blue-200 flex flex-col mt-12 mx-4 lg:mx-32 drop-shadow-md"
+        id={id}
+      >
+        <div className="flex justify-center mt-8 mb-6">
+          <img
+            src={naplesImg}
+            alt="Naples"
+            className="rounded-lg drop-shadow-md"
+          />
+        </div>
+        <h2 className="font-bold text-3xl mb-4">{name}</h2>
+        <h2 className="mb-4 font-bold">Temperature</h2>
+        <div className="flex justify-around mb-8 flex-wrap">
+          <h2>
+            Temperature:{" "}
+            <strong className="text-yellow-500  bg-blue-500 p-1 rounded-md">
+              {temp}°C
+            </strong>
+          </h2>
+          <p>
+            Max Temperature:{" "}
+            <strong className="text-yellow-500 bg-blue-500 p-1 rounded-md">
+              {tempMAX}°C
+            </strong>
+          </p>
+          <p>
+            Min Temperature:{" "}
+            <strong className="text-yellow-500  bg-blue-500 p-1 rounded-md">
+              {tempMIN}°C
+            </strong>
+          </p>
+        </div>
+        <div className="flex justify-around mb-12 font-bold flex-wrap">
+          <p className="bg-blue-400 rounded-md p-3">Weather: {mainWeather}</p>
+          <p className="bg-blue-400 rounded-md p-3">{mainDesc}</p>
+          <p className="bg-blue-400 rounded-md p-3">Wind: {windSpeed} m/s</p>
+        </div>
       </div>
     </div>
   );
