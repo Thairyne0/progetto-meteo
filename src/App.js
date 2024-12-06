@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import MyNavBar from "./components/MyNavBar";
+
+import Home from "./pages/Home";
+import React, { useState } from "react";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Details from "./pages/Details";
 
 function App() {
+  // const [searchQuery, setSearchQuery] = useState("");
+  //creare un component con props = queryName
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <MyNavBar></MyNavBar>
       </header>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home></Home>}></Route>
+          <Route
+            path="/details/:cityName"
+            element={<Details></Details>}
+          ></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
